@@ -4,11 +4,12 @@ One month of US consumer complaints about credit cards, analysed to answer one q
 **which complaint root causes should a card issuer fix first?**
 
 **Data:** 8,325 credit card complaints · 915 dispute narratives · March 2026
+
 **Stack:** Python (pandas) · SQLite · Claude API (LLM classification) · Tableau
 
 **Interactive dashboard:** [Tableau Public](https://public.tableau.com/app/profile/yao.lew/viz/CreditCardComplaintRoot-CauseAnalysis/Overview)
 
-![Dashboard](dashboard.png)
+![Dashboard](Creditcard_analysis_dashboard.png)
 
 ---
 
@@ -147,9 +148,13 @@ python3 step4_validate_v2.py    # interactive blind check of 30 labels
 python3 step4_finalise.py       # merge categories, produce disputes_final.csv
 ```
 
-`step4_tag.py` and `step4_validate.py` are the v1 scripts, kept as a record of the iteration.
-`data/disputes_final.csv` and `data/validation_v2_30.csv` are included so the results can be
-checked without re-running the API.
+The scripts read and write files in a `data/` folder next to them. `step4_sample.py` prints a
+few narratives for designing the categories. `step4_tag.py` and `step4_validate.py` are the v1
+scripts, kept as a record of the iteration.
+
+The final results, `disputes_final.csv` (915 AI-labelled narratives) and `validation_v2_30.csv`
+(my blind manual check), are included in this repo so they can be inspected without re-running
+the API. The raw CFPB export and intermediate files are not included because of their size.
 
 ---
 
